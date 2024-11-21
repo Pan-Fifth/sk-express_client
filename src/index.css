@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal-box{
+  max-width: 80%
+} 
+#buyer{
+  max-width: 600px
+} 
+#order{
+  max-width: 900px
+} 
+#buyerModal{
+  min-width: 800px;
+  min-height: 100vh;
+}
+#CustomerOrderModal{
+  max-width: 1200px
+} 
