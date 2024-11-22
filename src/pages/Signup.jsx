@@ -3,7 +3,7 @@ import { Link,useNavigate } from 'react-router-dom'
 import loginPic from '../pictures/register.jpg'
 import axios from 'axios'
 
-
+const API_URL = import.meta.env.VITE_API_URL
 const Signup = () => {
   const navigate = useNavigate()
   console.log("test")
@@ -23,7 +23,7 @@ const Signup = () => {
 
   const hdlRegister = async()=>{
     try {
-      const res = await axios.post("http://localhost:8000/auth/register/",input)
+      const res = await axios.post(`${API_URL}/auth/register/`,input)
       alert(res.data.message)
       navigate("/login")
     } catch (err) {
