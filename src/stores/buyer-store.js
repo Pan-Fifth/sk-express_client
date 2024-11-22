@@ -7,7 +7,7 @@ const useBuyerStore = create(persist((set,get)=>({
     buyerIncInactive:[],
     getBuyer: async(token) =>{
         try {
-            const res = await axios.get('http://localhost:8000/buyer/allActive',{
+            const res = await axios.get('http://localhost:3000/buyer/allActive',{
                 headers:{Authorization:`Bearer ${token}`}
             })
             set({buyer:res.data})
@@ -17,7 +17,7 @@ const useBuyerStore = create(persist((set,get)=>({
     },
     addBuyer: async(token,body) =>{
         try {
-            const res = await axios.post('http://localhost:8000/buyer/add',body,{
+            const res = await axios.post('http://localhost:3000/buyer/add',body,{
                 headers:{Authorization:`Bearer ${token}`}
             })
             alert("create buyer complete")
@@ -27,7 +27,7 @@ const useBuyerStore = create(persist((set,get)=>({
      },
      editBuyer: async(token,body)=>{
         try {
-            const res =await axios.patch("http://localhost:8000/buyer/edit",body,{
+            const res =await axios.patch("http://localhost:3000/buyer/edit",body,{
                headers:{Authorization:`Bearer ${token}`} 
             })
         } catch (err) {
@@ -37,7 +37,7 @@ const useBuyerStore = create(persist((set,get)=>({
      getBuyerIncInactive : async (token) =>{
         try {
             console.log("getBuyerIncInactive")
-            const res = await axios.get('http://localhost:8000/buyer/all',{
+            const res = await axios.get('http://localhost:3000/buyer/all',{
                 headers:{Authorization:`Bearer ${token}`}
             })
             set({buyerIncInactive:res.data})

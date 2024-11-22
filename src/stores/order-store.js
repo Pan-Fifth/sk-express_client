@@ -11,7 +11,7 @@ const useOrderStore = create(persist((set, get) => ({
     getAllOrder: async (token) => {
         try {
             console.log("test get all order");
-            const res = await axios.get('http://localhost:8000/order/all', {
+            const res = await axios.get('http://localhost:3000/order/all', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             set({ orders: res.data })
@@ -23,7 +23,7 @@ const useOrderStore = create(persist((set, get) => ({
         try {
             set({orderIsLoading:true})
             console.log("add order store")
-            const res = await axios.post('http://localhost:8000/order/add', body, {
+            const res = await axios.post('http://localhost:3000/order/add', body, {
                 headers: { Authorization: `Bearer ${token}` }
             })
         } catch (err) {
@@ -35,7 +35,7 @@ const useOrderStore = create(persist((set, get) => ({
     adminGetOrder: async (token) => {
         try {
             console.log("in admingetorder");
-            const res = await axios.get('http://localhost:8000/admin/adminGetAllOrders', {
+            const res = await axios.get('http://localhost:3000/admin/adminGetAllOrders', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             console.log(res);
@@ -48,7 +48,7 @@ const useOrderStore = create(persist((set, get) => ({
         try {
             set({orderIsLoading:true})
             console.log("in admin edit order")
-            const res = await axios.patch("http://localhost:8000/admin/editOrder", body, {
+            const res = await axios.patch("http://localhost:3000/admin/editOrder", body, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             console.log(res);
@@ -61,7 +61,7 @@ const useOrderStore = create(persist((set, get) => ({
     adminDeleteOrder: async(token,id) =>{
         try {
             set({orderIsLoading:true})
-            const res = await axios.delete(`http://localhost:8000/order/delete/${id}`,{
+            const res = await axios.delete(`http://localhost:3000/order/delete/${id}`,{
                 headers: { Authorization: `Bearer ${token}` }
             })
             console.log(res);
