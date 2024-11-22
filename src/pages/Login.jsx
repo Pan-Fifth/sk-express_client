@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Link , useNavigate } from 'react-router-dom'
 import useUserStore from '../stores/user-store'
 
-
+const API_URL = import.meta.env.VITE_API_URL
 
 const Login = () => {
+
+  console.log(API_URL)
   const login = useUserStore(state=>state.login)
   const navigate = useNavigate()
   const [input,setInput] = useState({

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import useUserStore from '../stores/user-store';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
-
+const API_URL = import.meta.env.VITE_API_URL
 const ProtectRoute = ({element,allow}) => {
     const [isAllowed,setIsAllowed] = useState(null);
     const token = useUserStore(state=>state.token)
@@ -14,7 +14,7 @@ const ProtectRoute = ({element,allow}) => {
 
     const checkRole = async()=>{
         try {
-            const resp = await axios.get("http://localhost:8000/user/info",{
+            const resp = await axios.get(`${API_URL}/user/info`,{
                 headers : {Authorization:`Bearer ${token}`}
             })
             console.log("protect route", resp.data.user.role);

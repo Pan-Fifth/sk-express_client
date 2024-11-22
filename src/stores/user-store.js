@@ -2,6 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 import { createJSONStorage,persist } from "zustand/middleware";
 
+const API_URL = import.meta.env.VITE_API_URL
 const useUserStore = create(persist((set,get)=>({
     user:null,
     token:"",
@@ -13,7 +14,8 @@ const useUserStore = create(persist((set,get)=>({
     },
     login : async(input)=>{
         try {
-            const res = await axios.post("http://localhost:3000/auth/login/",input)
+            console.log("test",`${API_URL}/auth/login/`)
+            const res = await axios.post(`${API_URL}/auth/login/`,input)
             set({token:res.data.token})
             return res.data.user.role
         } catch (err) {
@@ -30,7 +32,7 @@ const useUserStore = create(persist((set,get)=>({
     },
     getInfo : async(token)=>{
         try {
-            const res = await axios.get("http://localhost:3000/user/info",{
+            const res = await axios.get(`${API_URL}/user/info`,{
                 headers : {Authorization:`Bearer ${token}`}
             })
             set({user:res.data.user})
@@ -40,7 +42,7 @@ const useUserStore = create(persist((set,get)=>({
     },
     editInfo: async(token,body)=>{
         try {
-            const res = await axios.patch("http://localhost:3000/user/edit",body,{
+            const res = await axios.patch(`${API_URL}/user/edit`,body,{
                 headers :{Authorization:`Bearer ${token}`}
             })
             set({user:res.data.user})
@@ -53,7 +55,7 @@ const useUserStore = create(persist((set,get)=>({
     editProfilePic: async(token,file)=>{
         try {
             set({userIsLoading:true})
-            const res = await axios.put("http://localhost:3000/user/edit",file,{
+            const res = await axios.put(`${API_URL}/user/edit`,file,{
             headers :{Authorization:`Bearer ${token}`}
             })
             set({user:res.data.user,userIsLoading:false})
@@ -63,7 +65,7 @@ const useUserStore = create(persist((set,get)=>({
     },
     forgetPassword: async(body)=>{
         try {
-            const res = await axios.post("http://localhost:3000/auth/forget-password",body)
+            const res = await axios.post(`${API_URL}/auth/forget-password`,body)
             alert(res.data.message)
         } catch (err) {
             console.log(err)
@@ -71,7 +73,7 @@ const useUserStore = create(persist((set,get)=>({
     },
     resetPassword: async(body)=>{
         try {
-            const res = await axios.patch("http://localhost:3000/auth/resetPass",body)
+            const res = await axios.patch(`${API_URL}/auth/resetPass`,body)
             
         } catch (err) {
             console.log(err)
@@ -80,7 +82,7 @@ const useUserStore = create(persist((set,get)=>({
     getAllUser: async(token)=>{
         try {
             // console.log("in All user");
-            const res = await axios.get("http://localhost:3000/user/all",{
+            const res = await axios.get(`${API_URL}/user/all`,{
                 headers :{Authorization:`Bearer ${token}`}
                 })
 
