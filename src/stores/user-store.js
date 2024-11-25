@@ -16,6 +16,7 @@ const useUserStore = create(persist((set,get)=>({
         try {
             console.log("test",`${API_URL}/auth/login/`)
             const res = await axios.post(`${API_URL}/auth/login/`,input)
+            console.log(res)
             set({token:res.data.token})
             return res.data.user.role
         } catch (err) {

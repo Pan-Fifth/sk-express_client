@@ -39,6 +39,7 @@ function UserHeader() {
         <li className="hover:text-red-500 transition"><Link to={'/'}>Home</Link></li>
         <li className="hover:text-red-500 transition"><Link to={'/product'}>Product</Link></li>
         <li className="hover:text-red-500 transition"><Link to={'/contact'}>Contact</Link></li>
+        <li className="hover:text-red-500 transition"><Link to={'/user/mypage'}>My page</Link></li>
         <li className="hover:text-red-500 transition cursor-pointer" onClick={hdlLogout}>Log out</li>
       </ul>
 
@@ -48,6 +49,7 @@ function UserHeader() {
           <li className="hover:bg-gray-100 px-6 py-2"><Link to={'/'}>Home</Link></li>
           <li className="hover:bg-gray-100 px-6 py-2"><Link to={'/product'}>Product</Link></li>
           <li className="hover:bg-gray-100 px-6 py-2"><Link to={'/contact'}>Contact</Link></li>
+          <li className="hover:bg-gray-100 px-6 py-2"><Link to={'/user/mypage'}>My page</Link></li>
           <li className="hover:bg-gray-100 px-6 py-2 cursor-pointer" onClick={hdlLogout}>Log out</li>
         </ul>
       )}
