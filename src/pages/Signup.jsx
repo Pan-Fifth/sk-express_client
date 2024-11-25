@@ -36,7 +36,7 @@ const Signup = () => {
     <div className="h-full bg-red-500 flex flex-col">
       {/* Main content */}
       <main className="flex-grow flex items-center justify-center ">
-        <div className="bg-white shadow-md rounded-lg overflow-hidden flex max-w-4xl w-full h-[85%]">
+        <div className="bg-white shadow-md rounded-lg overflow-hidden flex max-w-4xl w-full h-[70%]">
           {/* Registration form */}
           <div className="w-full md:w-1/2 p-8">
             <h2 className="text-4xl font-bold mb-6">Register</h2>
