@@ -17,7 +17,7 @@ const SlideShow = () => {
       onMouseEnter={autoplay.current.stop}
       onMouseLeave={autoplay.current.reset}
     >
-      <Carousel.Slide className='py-3  bg-white'><img src={slide1} className=' mx-auto rounded-xl' /></Carousel.Slide>
+      <Carousel.Slide className='py-3 bg-white'><img src={slide1} className=' mx-auto rounded-xl' /></Carousel.Slide>
       <Carousel.Slide className='py-3  bg-white'><img src={slide2} className=' mx-auto rounded-xl' /></Carousel.Slide>
     </Carousel>
   );

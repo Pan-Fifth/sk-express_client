@@ -6,9 +6,9 @@ const Footer = () => {
           <div className="px-10 bg-gray-800 text-white h-[100px]">
             <div className="flex flex-col md:flex-row justify-between items-center">
               
-              <div className="mt-2">
-                <h3 className="text-xl font-bold ">SK EXPRESS</h3>
-                <p>Your Bridge to Japanese Products</p>
+              <div className="mt-5 md:mt-2">
+                <h3 className="hidden md:block text-xl font-bold ">SK EXPRESS</h3>
+                <p className="hidden md:block" >Your Bridge to Japanese Products</p>
               </div>
 
               <div className="flex space-x-4">
